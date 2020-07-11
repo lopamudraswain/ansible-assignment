@@ -1,0 +1,20 @@
+- name: This is used to Create EC2 instance 
+  hosts: "{{ ansible_hosts }}"
+  become: true
+  become_method: sudo
+  tasks:
+  - name: Create the EC2 instances
+    ec2:
+      key_name: "{{ aws_key }}"
+      instance_type: "{{ aws_instance_type }}"
+      region: "{{ aws_region }}"
+      image: "{{ aws_image }}"
+      group_id: "{{ aws_security }}"
+      vpc_subnet_id: "{{ aws_subnet }}"
+      assign_public_ip: yes
+      aws_access_key: "{{ aws_access }}"
+      aws_secret_key: "{{ aws_secret }}"
+      volumes:
+      - device_name: /dev/xvda
+        volume_type: gp2
+        volume_size: 15
