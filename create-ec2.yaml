@@ -3,7 +3,7 @@ hosts: localhost
 tasks:
 - name: launching AWS instance using Ansible
 ec2:
-key_name: aws_instance_Ansible
+key_name: assignment
 instance_type: t2.micro
 image: ami-0ac80df6eff0e70b5
 region: us-east-1
