@@ -12,5 +12,5 @@ group_id: sg-d8c4eefb
 count: 1
 vpc_subnet_id: subnet-36318a38
 assign_public_ip: yes
- aws_access_key : AKIA2V4JXU5LMMXMD2XJ
+ Aws_access_key : AKIA2V4JXU5LMMXMD2XJ
  Aws_secret_key : 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
