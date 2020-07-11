@@ -1,0 +1,23 @@
+- name: This is used to Application Load Balancer
+  hosts: "{{ ansible_hosts }}"
+  become: true
+  become_method: sudo
+  tasks:
+  - name: Create the ELB
+    elb_application_lb:
+      name: ansible1
+      aws_access_key: "{{ aws_access }}"
+      aws_secret_key: "{{ aws_secret }}"
+      region: us-east-1
+      scheme: internet-facing
+      security_groups: "{{ aws_security }}"
+      subnets:
+        - "{{ aws_subnet1 }}"
+        - "{{ aws_subnet2 }}"
+      listeners:
+        - Protocol: http # options are http, https, ssl, tcp
+          Port: 80
+          DefaultActions:
+            - Type: forward
+              TargetGroupName: ansible-test
+      state: present
